@@ -15,8 +15,10 @@ import {
   PieChart as PieIcon,
   BarChart3 as BarIcon,
   Table as TableIcon,
-  Donut as DonutIcon
+  Donut as DonutIcon,
+  Download as DownloadIcon,
 } from "lucide-react";
+import { useState } from "react";
 
 const chartOptions = [
   { type: "pie", icon: PieIcon },
@@ -51,6 +53,30 @@ const CustomBar = (props) => {
 };
 
 export const ChartCard = ({ title, data, chartType, setChartType }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  //Pagination Data
+  const Items_Per_Page = 10;
+  const startIndex = (currentPage - 1) * Items_Per_Page;
+  const endIndex = startIndex + Items_Per_Page;
+  console.log("current page is ", currentPage);
+  const totalPages = Math.ceil(data.length / Items_Per_Page);
+  console.log("total pages are ", totalPages);
+  const paginatedData = data.slice(startIndex, endIndex);
+  //Increment page
+  const handlePageIncrement = () => {
+    if (currentPage < totalPages) {
+      console.log("inside page increment");
+      setCurrentPage((prev) => prev + 1);
+    }
+  };
+  //Decrement Page
+  const handlePageDecrement = () => {
+    if (currentPage > 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  };
+
   return (
     <div className="card">
       {/* Top Bar */}
@@ -89,6 +115,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
             );
           })()}
         </div>
+        {/* <button><DownloadIcon/></button> */}
       </div>
 
       {/* Chart Area */}
@@ -97,7 +124,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
-                data={data}
+                data={paginatedData}
                 dataKey="value"
                 outerRadius={100}
                 shape={CustomSlice}
@@ -109,7 +136,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
 
         {chartType === "bar" && (
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data}>
+            <BarChart data={paginatedData}>
               <CartesianGrid strokeDasharray="6 6" />
               <XAxis dataKey="name" />
               <YAxis />
@@ -123,7 +150,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
-                data={data}
+                data={paginatedData}
                 dataKey="value"
                 outerRadius={100}
                 innerRadius={60}
@@ -144,7 +171,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
               </tr>
             </thead>
             <tbody>
-              {data.map((entry, index) => (
+              {paginatedData.map((entry, index) => (
                 <tr key={entry.name}>
                   <td>{index + 1}</td>
                   <td>{entry.name}</td>
@@ -155,7 +182,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
           </table>
         )}
         <div className="legend">
-          {data.map((entry, index) => (
+          {paginatedData.map((entry, index) => (
             <div key={index} className="legend-item">
               <div className="legend-left">
                 {/* <span className="dot" style={{ background: COLORS[index] }} /> */}
@@ -171,6 +198,24 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
             </div>
           ))}
         </div>
+      </div>
+      {/* Pagination */}
+      <div className="pagination">
+        <button
+          onClick={() => handlePageDecrement()}
+          disabled={currentPage === 1}
+        >
+          {"<"}
+        </button>
+        <span className="page">
+          {currentPage} / {totalPages}
+        </span>
+        <button
+          onClick={() => handlePageIncrement()}
+          disabled={currentPage === totalPages}
+        >
+          {">"}
+        </button>
       </div>
     </div>
   );
