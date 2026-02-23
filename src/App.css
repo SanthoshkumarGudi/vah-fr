@@ -1,0 +1,76 @@
+.card {
+  background: #f4f6fb;
+  padding: 20px;
+  border-radius: 12px;
+  width: 900px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.actions button {
+  margin-left: 8px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: white;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart {
+  width: 50%;
+}
+
+.legend {
+  width: 40%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.value {
+  font-weight: 600;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.page {
+  margin: 0 10px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid #4f6df5;
+}

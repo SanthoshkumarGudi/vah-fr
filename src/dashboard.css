@@ -1,0 +1,218 @@
+.chartWrapper {
+  display: grid; /* layout to decide sturcutre */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  padding: 40px;
+}
+
+/* Card Container */
+.card {
+  background: #ffffff;
+  /* width: 100%; */
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 1000px; /* limit width */
+  font-family: "Inter", sans-serif;
+  flex: 1;
+  min-width: 520px;
+  margin: 40px 0; /* remove auto */
+}
+
+/* .card {
+  width: 100%;
+  min-height: 520px;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+} */
+
+/* Top Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #f7f9fc;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 1s ease;
+}
+
+.actions button:hover {
+  background: #e8f0ff;
+  border-color: #4f6df5;
+}
+
+.actions button.active {
+  background: #4f6df5;
+  color: white;
+  border-color: #4f6df5;
+}
+
+/* Content Layout */
+.content {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  /* align-items: stretch; */
+  align-items: start;
+  gap: 10px;
+}
+
+/* Chart Area */
+.chart {
+  flex: 1;
+  min-width: "50%";
+}
+
+/* Legend */
+.legend {
+  width: 400px; /* control width */
+  margin-top: 20px; /* push to right */
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.legend-item {
+  background: #f3f5f9;
+  border-radius: 12px;
+  /* padding: 6px 6px; */
+  display: flex;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.value {
+  font-weight: 100;
+}
+
+/* Table Styling */
+.table {
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table thead {
+  background: #f0f4ff;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.table tr:hover {
+  background: #f9fbff;
+}
+
+/* Pagination */
+.pagination {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+.page {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #4f6df5;
+  color: white;
+}
+
+.chart-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.current-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #4f6df5;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.chart-switch {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  width: 300px;
+}
+
+.chart-btn {
+  min-width: 70px;
+  text-align: center;
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease;
+}
+
+/* Only active button visible initially */
+/* Hide non-active initially (but keep space reserved) */
+.chart-btn:not(.active) {
+  transform: translateX(10px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* On hover expand */
+.chart-switch:hover .chart-btn {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Active button style */
+.chart-btn.active {
+  background: #4f6df5;
+  color: white;
+  border-color: #4f6df5;
+}
+
+/* Spacing when expanded */
+.chart-switch:hover .chart-btn + .chart-btn {
+  margin-left: 8px;
+}
