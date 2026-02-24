@@ -19,6 +19,8 @@ import {
   Download as DownloadIcon,
 } from "lucide-react";
 import { useState } from "react";
+// import { chartOptions } from "../../data/dashboardData";
+import styles from "./ChartCard.module.css";
 
 const chartOptions = [
   { type: "pie", icon: PieIcon },
@@ -27,13 +29,11 @@ const chartOptions = [
   { type: "table", icon: TableIcon },
 ];
 
-const COLORS = ["#E3B977", "#A9C06F"];
-const COLORS2 = ["#d49954", "#70bfc5", "#7d70c5"];
-
 const CustomSlice = (props) => {
   const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, colour } =
     props;
 
+    debugger
   return (
     <Sector
       cx={cx}
@@ -63,6 +63,8 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
   const totalPages = Math.ceil(data.length / Items_Per_Page);
   console.log("total pages are ", totalPages);
   const paginatedData = data.slice(startIndex, endIndex);
+  console.log("paginated data is ", paginatedData);
+
   //Increment page
   const handlePageIncrement = () => {
     if (currentPage < totalPages) {
@@ -78,13 +80,13 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
   };
 
   return (
-    <div className="card">
+    <div className={styles.card}>
       {/* Top Bar */}
-      <div className="top-bar">
-        <select>
+      <div className={styles.topBar}>
+        <select className={styles.select}>
           <option>{title}</option>
         </select>
-        <div className="chart-switch">
+        <div className={styles.chartSwitch}>
           {chartOptions
             .filter((option) => option.type !== chartType)
             .map((option) => {
@@ -93,23 +95,20 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
                 <button
                   key={option.type}
                   onClick={() => setChartType(option.type)}
-                  className="chart-btn"
-                  title={
-                    option.type.charAt(0).toUpperCase() + option.type.slice(1)
-                  }
+                  className={styles.chartBtn}
                 >
                   <Icon size={16} />
                 </button>
               );
             })}
 
-          {/* Active always last */}
+          {/* Active button LAST */}
           {(() => {
             const activeOption = chartOptions.find((o) => o.type === chartType);
-            if (!activeOption) return null;
             const ActiveIcon = activeOption.icon;
+
             return (
-              <button className="chart-btn active">
+              <button className={`${styles.chartBtn} ${styles.active}`}>
                 <ActiveIcon size={16} />
               </button>
             );
@@ -119,7 +118,7 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
       </div>
 
       {/* Chart Area */}
-      <div className="content">
+      <div className={styles.content}>
         {chartType === "pie" && (
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
@@ -181,13 +180,12 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
             </tbody>
           </table>
         )}
-        <div className="legend">
+        <div className={styles.legend}>
           {paginatedData.map((entry, index) => (
-            <div key={index} className="legend-item">
+            <div key={index} className={styles.legendItem}>
               <div className="legend-left">
-                {/* <span className="dot" style={{ background: COLORS[index] }} /> */}
                 <span
-                  className="dot"
+                  className={styles.dot}
                   style={{ backgroundColor: entry.colour }}
                 />
                 {entry.name}

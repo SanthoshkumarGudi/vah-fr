@@ -1,0 +1,25 @@
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 24px;
+  padding: 20px 24px;
+}
+
+.card {
+  background: #f4f4f5;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.title {
+  font-size: 13px;
+  color: #7c7c7c;
+  margin-bottom: 8px;
+}
+
+.value {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}

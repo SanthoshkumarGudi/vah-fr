@@ -1,16 +1,7 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 a {
@@ -65,4 +56,30 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* =========================
+   LIGHT THEME (default)
+========================= */
+:root {
+  --bg-main: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-header: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --primary: #4f6df5;
+}
+
+/* =========================
+   DARK THEME
+========================= */
+[data-theme="dark"] {
+  --bg-main: #111827;
+  --bg-card: #1f2937;
+  --bg-header: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
+  --primary: #6366f1;
 }

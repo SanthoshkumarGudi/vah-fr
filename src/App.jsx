@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { Dashboard } from "./components/Dashboard";
-import { Dashboard2 } from "./components/Dashboard2";
+import { Dashboard2 } from "./pages/Dashboard2";
 
 function App() {
   return (

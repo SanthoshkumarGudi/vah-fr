@@ -1,0 +1,119 @@
+.card {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  min-height: 480px;
+}
+
+/* Top Bar */
+.topBar {
+  background: #e9eef8;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+}
+
+/* Content Layout */
+.content {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  align-items: start;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+}
+
+.legendItem {
+  background: #f3f5f9;
+  border-radius: 12px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.legendLeft {
+  display: flex;
+  align-items: center;
+}
+
+.legendValue {
+  font-weight: 500;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+}
+
+.page {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #4f6df5;
+  color: white;
+}
+.chartSwitch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+}
+
+.chartBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #4f6df5;
+  background: white;
+  color: #4f6df5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.active {
+  background: #4f6df5;
+  color: white;
+}
+
+.chartBtn:not(.active) {
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+}
+
+.chartSwitch:hover .chartBtn:not(.active) {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
