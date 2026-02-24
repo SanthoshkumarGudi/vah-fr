@@ -60,10 +60,14 @@ const SnapHeader = () => {
         </div>
 
         {/* Center Search */}
+
         <div className="snap-search">
           <span className="search-icon">🔍</span>
           <input placeholder="Press space for search" />
-          <button className="search-add">+</button>
+          <button 
+          className="search-add"
+          title=""
+          >+</button>
         </div>
 
         {/* Right Section */}
