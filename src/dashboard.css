@@ -38,7 +38,6 @@
 .top-bar {
   background: #e9eef8; /* light bluish */
   padding: 16px 16px;
-
   display: flex;
   justify-content: space-between;
   align-items: center;

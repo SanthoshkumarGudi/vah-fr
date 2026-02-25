@@ -7,7 +7,6 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-
   background: var(--bg-card);
   border-radius: 18px;
   padding: 14px 24px;
@@ -141,10 +140,8 @@
   display: flex;
   align-items: center;
   gap: 14px;
-
   padding: 8px 16px;
   border-radius: 28px;
-
   background: var(--bg-card);
   border: 1px solid #e5e7eb;
 

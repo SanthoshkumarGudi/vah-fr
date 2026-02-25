@@ -88,15 +88,15 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
         <div className={styles.chartSwitch}>
           {chartOptions
             .filter((option) => option.type !== chartType)
-            .map((option) => {
+            .map((option, index) => {
               const Icon = option.icon;
               return (
                 <button
-                  key={option.type}
+                  key={index}
                   onClick={() => setChartType(option.type)}
                   className={styles.chartBtn}
                 >
-                  <Icon size={16} />
+                  <Icon size={18} />
                 </button>
               );
             })}
@@ -182,14 +182,14 @@ export const ChartCard = ({ title, data, chartType, setChartType }) => {
         <div className={styles.legend}>
           {paginatedData.map((entry, index) => (
             <div key={index} className={styles.legendItem}>
-              <div className="legend-left">
+              <div className={styles.legendLeft}>
                 <span
                   className={styles.dot}
                   style={{ backgroundColor: entry.colour }}
                 />
                 {entry.name}
               </div>
-              <span className="legend-value">
+              <span className={styles.legendLeft}>
                 {entry.value.toLocaleString("en-IN")}
               </span>
             </div>

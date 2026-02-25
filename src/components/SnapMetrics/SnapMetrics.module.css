@@ -1,27 +1,75 @@
 .metrics {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 24px;
-  padding: 20px 24px;
-    background: var(--bg-card);
-
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px 20px;
+  padding: 16px 24px;
+  background: var(--bg-main);
 }
 
 .card {
-  background: #f4f4f5;
-  padding: 20px;
-  border-radius: 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  min-height: 110px;
+}
+
+.accentBar {
+  border-radius: 8px 0 0 8px;
+  height: calc(100% + 2px);
+  position: absolute;
+  right: 0;
+  top: -1px;
+  width: 6px;
+  background: var(--card-accent);
+}
+
+.content {
+  padding: 16px 16px 16px 24px; /* extra left padding for accent bar */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.titleGroup {
+  flex: 1;
 }
 
 .title {
-  font-size: 13px;
-  color: #7c7c7c;
-  margin-bottom: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.date {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  margin-top: 1px;
+  opacity: 0.85;
 }
 
 .value {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  margin-top: auto; /* push to bottom */
 }
