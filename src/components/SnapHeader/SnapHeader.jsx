@@ -1,13 +1,17 @@
 import styles from "./SnapHeader.module.css";
 
-const SnapHeader = () => {
+const SnapHeader = ({setTheme, theme}) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.logo}>S</div>
           <span className={styles.title}>Snap View</span>
-          <span className={styles.gear}>⚙</span>
+          <span 
+          className={styles.gear}
+          title="view settings"
+          >⚙</span>
+
         </div>
 
         <div className={styles.search}>
@@ -33,8 +37,11 @@ const SnapHeader = () => {
   </button>
 
   {/* Theme Button (Separate) */}
-  <button className={styles.themeButton}>
-    ☀
+  <button 
+  className={styles.themeButton}
+  onClick={()=>setTheme(prev=> prev==='light'? 'dark' :'light')}
+  >
+    {theme==='light'? "☀": "🌙"}
   </button>
 
 </div>

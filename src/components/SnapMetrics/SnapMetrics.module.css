@@ -3,6 +3,8 @@
   grid-template-columns: repeat(6, 1fr);
   gap: 24px;
   padding: 20px 24px;
+    background: var(--bg-card);
+
 }
 
 .card {
@@ -21,5 +23,5 @@
 .value {
   font-size: 20px;
   font-weight: 600;
-  color: #1f2937;
+  color: var(--text-primary);
 }

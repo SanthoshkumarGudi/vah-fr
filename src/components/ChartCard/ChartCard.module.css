@@ -1,7 +1,7 @@
 .card {
   border-radius: 16px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--bg-card);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@
   padding: 6px 12px;
   border-radius: 6px;
   background: #4f6df5;
-  color: white;
+  color: var(--text-primary);
 }
 .chartSwitch {
   display: flex;
@@ -93,7 +93,7 @@
   border-radius: 50%;
   border: 1px solid #4f6df5;
   background: white;
-  color: #4f6df5;
+  /* color: #4f6df5; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,7 +103,7 @@
 
 .active {
   background: #4f6df5;
-  color: white;
+  color: var(--text-primary);
 }
 
 .chartBtn:not(.active) {

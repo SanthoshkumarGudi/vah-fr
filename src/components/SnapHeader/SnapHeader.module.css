@@ -8,7 +8,7 @@
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
 
-  background: #ffffff;
+  background: var(--bg-card);
   border-radius: 18px;
   padding: 14px 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -26,7 +26,7 @@
   height: 32px;
   border-radius: 8px;
   background: #4f6df5;
-  color: white;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,7 +39,8 @@
 }
 
 .gear {
-  opacity: 0.6;
+  opacity: 1;
+  font-size:xx-large;
 }
 
 .search {
@@ -110,7 +111,7 @@
   height: 32px;
   border-radius: 50%;
   background: #4f6df5;
-  color: white;
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -144,7 +145,7 @@
   padding: 8px 16px;
   border-radius: 28px;
 
-  background: #ffffff;
+  background: var(--bg-card);
   border: 1px solid #e5e7eb;
 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);

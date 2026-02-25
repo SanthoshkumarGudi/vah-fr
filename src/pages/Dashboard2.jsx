@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Dashboard2.module.css";
 
 import SnapHeader from "../components/SnapHeader/SnapHeader";
@@ -17,10 +17,17 @@ export const Dashboard2 = () => {
   const [districtChartType, setDistrictChartType] = useState("pie");
   const [areaChartType, setAreaChartType] = useState("pie");
   const [cityChartType, setCityChartType] = useState("pie");
+  const [theme, setTheme] =useState("light");
+
+  useEffect(()=>{
+    document.documentElement.setAttribute("data-theme", theme)
+
+  },[theme])
+  
 
   return (
     <div className={styles.container}>
-      <SnapHeader />
+      <SnapHeader setTheme={setTheme} theme={theme}/>
       <SnapMetrics />
 
       <div className={styles.chartWrapper}>

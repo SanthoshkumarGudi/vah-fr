@@ -33,7 +33,6 @@ const CustomSlice = (props) => {
   const { cx, cy, innerRadius, outerRadius, startAngle, endAngle, colour } =
     props;
 
-    debugger
   return (
     <Sector
       cx={cx}
